@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OrthoMitra — Your Orthopedic Guide on WhatsApp</title>
+    <meta name="description" content="Dealing with joint pain, back pain, or a bone injury and don't know where to start? OrthoMitra is your AI-powered orthopedic guide on WhatsApp — available 24/7, in 10+ languages, completely free.">
+    <meta name="theme-color" content="#075E54">
+    <meta property="og:title" content="OrthoMitra — Your Orthopedic Guide on WhatsApp">
+    <meta property="og:description" content="Joint pain? Back trouble? Don't know who to ask? Chat with OrthoMitra on WhatsApp — free AI-powered orthopedic guidance, anytime, in your language.">
+    <meta property="og:type" content="website">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🦴</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="navbar-inner">
+            <a href="#" class="logo">Ortho<span>Mitra</span></a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#features">Features</a></li>
+                <li><a href="#how-it-works">How It Works</a></li>
+                <li><a href="#conditions">Conditions</a></li>
+                <li><a href="#testimonials">Stories</a></li>
+                <li><a href="#" class="nav-cta" id="navCtaBtn">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="vertical-align: -3px; margin-right: 4px;"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.611.611l4.458-1.495A11.96 11.96 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75c-2.35 0-4.527-.7-6.35-1.902l-.45-.29-2.645.887.887-2.645-.29-.45A9.71 9.71 0 012.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75z"/></svg>
+                    Chat on WhatsApp
+                </a></li>
+            </ul>
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero" id="hero">
+        <div class="hero-bg-glow hero-bg-glow-1"></div>
+        <div class="hero-bg-glow hero-bg-glow-2"></div>
+        <div class="hero-inner">
+            <div class="hero-content">
+                <div class="hero-badge reveal">
+                    <span class="hero-badge-dot"></span>
+                    Available 24/7 on WhatsApp
+                </div>
+                <h1 class="reveal reveal-delay-1">Bone or Joint Problem? <span class="highlight">Talk to OrthoMitra</span></h1>
+                <p class="hero-subtitle reveal reveal-delay-2">Don't know where to start with your knee pain, back trouble, or injury? OrthoMitra is your free AI-powered orthopedic guide on WhatsApp &mdash; get answers, exercises, and next steps in your language, anytime.</p>
+                <div class="hero-buttons reveal reveal-delay-3">
+                    <a href="#" class="btn btn-primary btn-lg" id="heroCtaBtn">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.611.611l4.458-1.495A11.96 11.96 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75c-2.35 0-4.527-.7-6.35-1.902l-.45-.29-2.645.887.887-2.645-.29-.45A9.71 9.71 0 012.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75z"/></svg>
+                        Start Free Chat
+                    </a>
+                    <a href="#how-it-works" class="btn btn-secondary btn-lg">See How It Works</a>
+                </div>
+                <div class="hero-stats reveal reveal-delay-4">
+                    <div class="hero-stat">
+                        <div class="hero-stat-value">10+</div>
+                        <div class="hero-stat-label">Languages</div>
+                    </div>
+                    <div class="hero-stat">
+                        <div class="hero-stat-value">24/7</div>
+                        <div class="hero-stat-label">Available</div>
+                    </div>
+                    <div class="hero-stat">
+                        <div class="hero-stat-value">Free</div>
+                        <div class="hero-stat-label">To Use</div>
+                    </div>
+                </div>
+            </div>
+            <div class="phone-mockup reveal reveal-delay-2">
+                <div class="phone-mockup-glow"></div>
+                <div class="phone">
+                    <div class="phone-frame-btn phone-frame-btn-silent"></div>
+                    <div class="phone-frame-btn phone-frame-btn-volup"></div>
+                    <div class="phone-frame-btn phone-frame-btn-voldown"></div>
+                    <div class="phone-frame-btn phone-frame-btn-power"></div>
+                    <div class="phone-screen">
+                        <div class="phone-dynamic-island"></div>
+                        <div class="phone-status-bar">
+                            <span class="phone-status-time">9:41</span>
+                            <div class="phone-status-icons">
+                                <svg width="16" height="11" viewBox="0 0 16 11" fill="currentColor"><path d="M8 1.7C5.8 1.7 3.8 2.6 2.3 4.1L0.5 2.3C2.5 0.3 5.1-0.8 8-0.8s5.5 1.1 7.5 3.1L13.7 4.1C12.2 2.6 10.2 1.7 8 1.7zM8 5.3c-1.5 0-2.9 0.6-3.9 1.6L2.3 5.1C3.8 3.6 5.8 2.7 8 2.7s4.2 0.9 5.7 2.4L11.9 6.9C10.9 5.9 9.5 5.3 8 5.3zM8 8.9c-0.8 0-1.5 0.3-2 0.8L8 11.8l2-2.1C9.5 9.2 8.8 8.9 8 8.9z"/></svg>
+                                <svg width="15" height="11" viewBox="0 0 15 11" fill="currentColor"><path d="M1 3h1.5v5H1V3zm3-1.5h1.5v6.5H4V1.5zM7 1h1.5v7H7V1zm3-1h1.5v9h-1.5V0zm3 0h1.5v9H13V0z"/></svg>
+                                <div class="phone-battery"><div class="phone-battery-fill"></div></div>
+                            </div>
+                        </div>
+                    <div class="phone-header">
+                        <span class="phone-back-arrow">&larr;</span>
+                        <div class="phone-avatar">OM</div>
+                        <div class="phone-header-text">
+                            <div class="phone-header-name">OrthoMitra</div>
+                            <div class="phone-header-status">online</div>
+                        </div>
+                        <div class="phone-header-actions">
+                            <span>&#9906;</span>
+                            <span>&#8942;</span>
+                        </div>
+                    </div>
+                    <div class="phone-chat">
+                        <div class="chat-date-divider"><span>Today</span></div>
+                        <div class="chat-bubble received">
+                            Hi! I'm OrthoMitra. What's bothering you?
+                            <div class="chat-meta"><span class="chat-time">10:30 AM</span></div>
+                        </div>
+                        <div class="chat-bubble sent">
+                            My knee hurts when I climb stairs. Should I see a doctor?
+                            <div class="chat-meta"><span class="chat-time">10:31 AM</span> <span class="chat-check">&#10003;&#10003;</span></div>
+                        </div>
+                        <div class="chat-bubble received">
+                            That sounds like it could be medial knee pain. Here are some safe exercises to start:
+                            <br><br>
+                            1. Quad sets (3&times;10)<br>
+                            2. Straight leg raises (3&times;10)<br>
+                            3. Wall sits (3&times;15s)
+                            <br><br>
+                            Want me to explain in Hindi?
+                            <div class="chat-meta"><span class="chat-time">10:31 AM</span></div>
+                        </div>
+                        <div class="chat-bubble sent">
+                            Haan, Hindi mein batao!
+                            <div class="chat-meta"><span class="chat-time">10:32 AM</span> <span class="chat-check">&#10003;&#10003;</span></div>
+                        </div>
+                    </div>
+                    <div class="phone-input-bar">
+                        <div class="phone-input">Type a message</div>
+                        <div class="phone-input-mic">&#9834;</div>
+                    </div>
+                    <div class="phone-home-indicator"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trusted By -->
+    <section class="trusted-by">
+        <div class="trusted-by-inner">
+            <div class="trusted-by-label reveal">Helping people find answers for</div>
+            <div class="trusted-by-stats reveal reveal-delay-1">
+                <div class="trusted-stat">
+                    <div class="trusted-stat-icon">🦵</div>
+                    <div class="trusted-stat-text">
+                        <div class="trusted-stat-value" data-count="1000" data-suffix="+">0</div>
+                        <div class="trusted-stat-label">People Helped</div>
+                    </div>
+                </div>
+                <div class="trusted-stat">
+                    <div class="trusted-stat-icon">🩺</div>
+                    <div class="trusted-stat-text">
+                        <div class="trusted-stat-value" data-count="50" data-suffix="+">0</div>
+                        <div class="trusted-stat-label">Ortho Conditions</div>
+                    </div>
+                </div>
+                <div class="trusted-stat">
+                    <div class="trusted-stat-icon">🌍</div>
+                    <div class="trusted-stat-text">
+                        <div class="trusted-stat-value" data-count="10" data-suffix="+">0</div>
+                        <div class="trusted-stat-label">Languages Supported</div>
+                    </div>
+                </div>
+                <div class="trusted-stat">
+                    <div class="trusted-stat-icon">💬</div>
+                    <div class="trusted-stat-text">
+                        <div class="trusted-stat-value" data-count="50000" data-suffix="+">0</div>
+                        <div class="trusted-stat-label">Messages Exchanged</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="section features" id="features">
+        <div class="section-inner section-center">
+            <span class="section-label reveal">Features</span>
+            <h2 class="section-title reveal">How OrthoMitra Helps You</h2>
+            <p class="section-subtitle reveal">Whether you're confused about your symptoms, looking for the right exercises, or just need someone to talk to about your pain &mdash; OrthoMitra is here.</p>
+            <div class="features-grid">
+                <div class="feature-card reveal">
+                    <div class="feature-icon">🧭</div>
+                    <h3>Understand Your Problem</h3>
+                    <p>Describe your pain or symptoms and get clear, easy-to-understand guidance on what might be going on and what to do next.</p>
+                </div>
+                <div class="feature-card reveal reveal-delay-1">
+                    <div class="feature-icon">🏋️</div>
+                    <h3>Exercises &amp; Relief Tips</h3>
+                    <p>Get safe exercises and home remedies tailored to your specific condition — with step-by-step instructions you can follow.</p>
+                </div>
+                <div class="feature-card reveal reveal-delay-2">
+                    <div class="feature-icon">🩺</div>
+                    <h3>Know When to See a Doctor</h3>
+                    <p>Not sure if your pain needs medical attention? OrthoMitra helps you understand warning signs and when to seek professional help.</p>
+                </div>
+                <div class="feature-card reveal reveal-delay-1">
+                    <div class="feature-icon">🌍</div>
+                    <h3>Talk in Your Language</h3>
+                    <p>Chat in Hindi, Tamil, Telugu, Bengali, Marathi, Kannada, and 10+ more languages. No English needed.</p>
+                </div>
+                <div class="feature-card reveal reveal-delay-2">
+                    <div class="feature-icon">🎙️</div>
+                    <h3>Just Send a Voice Note</h3>
+                    <p>Can't type? Just send a voice message on WhatsApp. OrthoMitra listens and responds — perfect when you're in pain.</p>
+                </div>
+                <div class="feature-card reveal reveal-delay-3">
+                    <div class="feature-icon">⏰</div>
+                    <h3>Available Anytime</h3>
+                    <p>Pain doesn't wait for office hours. Get help at 2 AM or 2 PM — no appointments, no queues, no delays.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="section how-it-works" id="how-it-works">
+        <div class="section-inner section-center">
+            <span class="section-label reveal">How It Works</span>
+            <h2 class="section-title reveal">Get Started in 3 Simple Steps</h2>
+            <p class="section-subtitle reveal">No app downloads. No sign-ups. No fees. Just open WhatsApp and start chatting.</p>
+            <div class="steps">
+                <div class="step reveal">
+                    <div class="step-number">1</div>
+                    <div class="step-connector-line"></div>
+                    <div class="step-icon">💬</div>
+                    <h3>Click to Chat</h3>
+                    <p>Tap the WhatsApp button — no app to download, no account to create. Just start talking.</p>
+                </div>
+                <div class="step reveal reveal-delay-2">
+                    <div class="step-number">2</div>
+                    <div class="step-connector-line"></div>
+                    <div class="step-icon">🗣️</div>
+                    <h3>Describe Your Problem</h3>
+                    <p>Tell OrthoMitra what's bothering you — knee pain, back ache, stiff shoulder, anything ortho. Type or send a voice note in any language.</p>
+                </div>
+                <div class="step reveal reveal-delay-4">
+                    <div class="step-number">3</div>
+                    <div class="step-connector-line"></div>
+                    <div class="step-icon">✨</div>
+                    <h3>Get Clear Guidance</h3>
+                    <p>Receive easy-to-follow advice — exercises, home care tips, and whether you should see a doctor.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Conditions -->
+    <section class="section conditions" id="conditions">
+        <div class="section-inner section-center">
+            <span class="section-label reveal">What Can You Ask About</span>
+            <h2 class="section-title reveal">Whatever's Hurting, We Can Help</h2>
+            <p class="section-subtitle reveal">From everyday aches to serious injuries &mdash; just describe your problem and OrthoMitra will guide you.</p>
+            <div class="conditions-grid">
+                <div class="condition-card reveal">
+                    <div class="condition-icon">🦵</div>
+                    <div>
+                        <h3>Knee Pain</h3>
+                        <p>Stiffness, swelling, pain while climbing stairs, locking, or clicking &mdash; we'll help you figure out what's going on.</p>
+                    </div>
+                </div>
+                <div class="condition-card reveal reveal-delay-1">
+                    <div class="condition-icon">🔙</div>
+                    <div>
+                        <h3>Back &amp; Spine Issues</h3>
+                        <p>Lower back pain, sciatica, disc problems, stiffness &mdash; get exercises, posture tips, and know when it's serious.</p>
+                    </div>
+                </div>
+                <div class="condition-card reveal reveal-delay-2">
+                    <div class="condition-icon">💪</div>
+                    <div>
+                        <h3>Shoulder &amp; Neck Pain</h3>
+                        <p>Frozen shoulder, rotator cuff pain, neck stiffness, or pain from long desk hours &mdash; we've got you covered.</p>
+                    </div>
+                </div>
+                <div class="condition-card reveal reveal-delay-1">
+                    <div class="condition-icon">🦴</div>
+                    <div>
+                        <h3>Joint Pain &amp; Arthritis</h3>
+                        <p>Aching joints, morning stiffness, swollen fingers or knees &mdash; learn what helps and what to watch out for.</p>
+                    </div>
+                </div>
+                <div class="condition-card reveal reveal-delay-2">
+                    <div class="condition-icon">🩹</div>
+                    <div>
+                        <h3>Injuries &amp; Fractures</h3>
+                        <p>Sprains, strains, fractures, sports injuries &mdash; understand your recovery path and what exercises are safe.</p>
+                    </div>
+                </div>
+                <div class="condition-card reveal reveal-delay-3">
+                    <div class="condition-icon">🤔</div>
+                    <div>
+                        <h3>Not Sure What's Wrong?</h3>
+                        <p>That's exactly why OrthoMitra exists. Just describe your pain and we'll help you understand it and take the right next step.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="section testimonials" id="testimonials">
+        <div class="section-inner section-center">
+            <span class="section-label reveal">Stories</span>
+            <h2 class="section-title reveal">People Like You, Getting Answers</h2>
+            <p class="section-subtitle reveal">Hear from real people who didn't know where to turn &mdash; until they messaged OrthoMitra.</p>
+            <div class="testimonials-grid">
+                <div class="testimonial-card reveal">
+                    <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <p class="testimonial-text">"I had knee pain for months and kept ignoring it. OrthoMitra asked me simple questions in Hindi, explained what might be wrong, and told me exactly which exercises to do. I finally feel like I understand my own body."</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">RS</div>
+                        <div>
+                            <div class="testimonial-author-name">Rajesh S.</div>
+                            <div class="testimonial-author-detail">Knee Pain &bull; Delhi</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card reveal reveal-delay-1">
+                    <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <p class="testimonial-text">"My back was killing me from sitting all day but I didn't know who to ask. I just sent a voice note on WhatsApp and got back easy stretches I could do at my desk. So simple and helpful!"</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">PM</div>
+                        <div>
+                            <div class="testimonial-author-name">Priya M.</div>
+                            <div class="testimonial-author-detail">Back Pain &bull; Mumbai</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card reveal reveal-delay-2">
+                    <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <p class="testimonial-text">"My father had joint pain and doesn't speak English. He just talked to OrthoMitra in Tamil like he would to a friend. It told him what exercises are safe and when he should see a doctor. Such a blessing!"</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">AK</div>
+                        <div>
+                            <div class="testimonial-author-name">Ananya K.</div>
+                            <div class="testimonial-author-detail">Father's Joint Pain &bull; Chennai</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section cta-section">
+        <div class="section-inner section-center">
+            <span class="section-label reveal" style="color: var(--green);">Start Today</span>
+            <h2 class="section-title reveal">Stop Guessing, Start Asking</h2>
+            <p class="section-subtitle reveal">Don't let confusion hold you back. Message OrthoMitra right now &mdash; it's free, instant, and speaks your language.</p>
+            <div class="reveal reveal-delay-1">
+                <a href="#" class="btn btn-primary btn-lg" id="ctaBtn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.611.611l4.458-1.495A11.96 11.96 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75c-2.35 0-4.527-.7-6.35-1.902l-.45-.29-2.645.887.887-2.645-.29-.45A9.71 9.71 0 012.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75z"/></svg>
+                    Chat with OrthoMitra on WhatsApp
+                </a>
+            </div>
+            <div class="cta-trust-badges reveal reveal-delay-2">
+                <div class="cta-trust-badge">
+                    <svg viewBox="0 0 24 24"><path d="M12 2L3.5 6.5v5.5c0 5 3.58 9.67 8.5 10.8 4.92-1.13 8.5-5.8 8.5-10.8V6.5L12 2zm-1 15l-4-4 1.41-1.41L11 14.17l6.59-6.59L19 9l-8 8z"/></svg>
+                    100% Free
+                </div>
+                <div class="cta-trust-badge">
+                    <svg viewBox="0 0 24 24"><path d="M12 2L3.5 6.5v5.5c0 5 3.58 9.67 8.5 10.8 4.92-1.13 8.5-5.8 8.5-10.8V6.5L12 2zm-1 15l-4-4 1.41-1.41L11 14.17l6.59-6.59L19 9l-8 8z"/></svg>
+                    No App Download
+                </div>
+                <div class="cta-trust-badge">
+                    <svg viewBox="0 0 24 24"><path d="M12 2L3.5 6.5v5.5c0 5 3.58 9.67 8.5 10.8 4.92-1.13 8.5-5.8 8.5-10.8V6.5L12 2zm-1 15l-4-4 1.41-1.41L11 14.17l6.59-6.59L19 9l-8 8z"/></svg>
+                    Private &amp; Secure
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="logo">Ortho<span>Mitra</span></div>
+                    <p>Your AI-powered orthopedic guide on WhatsApp. Got a bone or joint problem and don't know where to start? Just message us &mdash; free, 24/7, in your language.</p>
+                </div>
+                <div>
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#how-it-works">How It Works</a></li>
+                        <li><a href="#conditions">Conditions</a></li>
+                        <li><a href="#testimonials">Patient Stories</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Support</h4>
+                    <ul class="footer-links">
+                        <li><a href="#" id="footerWhatsappLink">WhatsApp Chat</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Contact</h4>
+                    <ul class="footer-links">
+                        <li><a href="#" id="footerPhoneLink">WhatsApp Support</a></li>
+                        <li><a href="mailto:support@orthomitra.com">support@orthomitra.com</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>&copy; 2026 OrthoMitra. All rights reserved.</span>
+                <div class="footer-bottom-links">
+                    <a href="#">Privacy</a>
+                    <a href="#">Terms</a>
+                    <a href="#">Disclaimer</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="#" class="whatsapp-float" id="whatsappFloat" aria-label="Chat on WhatsApp">
+        <span class="whatsapp-float-tooltip">Chat with us!</span>
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.611.611l4.458-1.495A11.96 11.96 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75c-2.35 0-4.527-.7-6.35-1.902l-.45-.29-2.645.887.887-2.645-.29-.45A9.71 9.71 0 012.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75z"/></svg>
+    </a>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
