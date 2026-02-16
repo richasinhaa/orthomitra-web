@@ -1,0 +1,1082 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OrthoMitra - AI-Powered Orthopedic Recovery Assistant on WhatsApp</title>
+    <meta name="description" content="OrthoMitra is your personal AI-powered orthopedic recovery companion available 24/7 on WhatsApp. Get personalized exercises, pain management tips, and recovery tracking.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --green: #25D366;
+            --green-dark: #1da851;
+            --teal: #075E54;
+            --teal-light: #128C7E;
+            --white: #ffffff;
+            --gray-50: #f9fafb;
+            --gray-100: #f3f4f6;
+            --gray-200: #e5e7eb;
+            --gray-400: #9ca3af;
+            --gray-500: #6b7280;
+            --gray-600: #4b5563;
+            --gray-700: #374151;
+            --gray-800: #1f2937;
+            --gray-900: #111827;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--gray-800);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Navbar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--gray-200);
+            padding: 0 24px;
+        }
+
+        .navbar-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 64px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--teal);
+        }
+
+        .logo span {
+            color: var(--green);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--gray-600);
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--teal);
+        }
+
+        .nav-cta {
+            background: var(--green);
+            color: var(--white) !important;
+            padding: 8px 20px;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: background 0.2s;
+        }
+
+        .nav-cta:hover {
+            background: var(--green-dark);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+        }
+
+        .mobile-menu-btn span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: var(--gray-700);
+            margin: 6px 0;
+            transition: 0.3s;
+        }
+
+        /* Hero */
+        .hero {
+            padding: 120px 24px 80px;
+            background: linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 50%, #f0fdfa 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 64px;
+            align-items: center;
+            width: 100%;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--white);
+            border: 1px solid var(--gray-200);
+            border-radius: 100px;
+            padding: 6px 16px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--teal);
+            margin-bottom: 24px;
+        }
+
+        .hero-badge-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--green);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .hero h1 {
+            font-size: 3.2rem;
+            font-weight: 800;
+            line-height: 1.15;
+            color: var(--gray-900);
+            margin-bottom: 20px;
+        }
+
+        .hero h1 .highlight {
+            color: var(--green);
+        }
+
+        .hero-subtitle {
+            font-size: 1.15rem;
+            color: var(--gray-500);
+            margin-bottom: 32px;
+            max-width: 480px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 48px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 28px;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+            font-family: 'Inter', sans-serif;
+            cursor: pointer;
+            border: none;
+            transition: all 0.2s;
+        }
+
+        .btn-primary {
+            background: var(--green);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background: var(--green-dark);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+        }
+
+        .btn-secondary {
+            background: var(--white);
+            color: var(--gray-700);
+            border: 1px solid var(--gray-200);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--gray-400);
+            transform: translateY(-1px);
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 40px;
+        }
+
+        .hero-stat {
+            text-align: center;
+        }
+
+        .hero-stat-value {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--teal);
+        }
+
+        .hero-stat-label {
+            font-size: 0.8rem;
+            color: var(--gray-500);
+            font-weight: 500;
+        }
+
+        /* Phone Mockup */
+        .phone-mockup {
+            position: relative;
+            display: flex;
+            justify-content: center;
+        }
+
+        .phone {
+            width: 300px;
+            background: var(--white);
+            border-radius: 36px;
+            border: 8px solid var(--gray-800);
+            overflow: hidden;
+            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.15);
+            position: relative;
+        }
+
+        .phone-notch {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 24px;
+            background: var(--gray-800);
+            border-radius: 0 0 16px 16px;
+            z-index: 10;
+        }
+
+        .phone-header {
+            background: var(--teal);
+            padding: 36px 16px 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .phone-avatar {
+            width: 36px;
+            height: 36px;
+            background: var(--green);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--white);
+        }
+
+        .phone-header-text {
+            color: var(--white);
+        }
+
+        .phone-header-name {
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .phone-header-status {
+            font-size: 0.7rem;
+            opacity: 0.8;
+        }
+
+        .phone-chat {
+            background: #e5ddd5;
+            padding: 16px 12px;
+            min-height: 360px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .chat-bubble {
+            max-width: 80%;
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-size: 0.78rem;
+            line-height: 1.4;
+        }
+
+        .chat-bubble.received {
+            background: var(--white);
+            align-self: flex-start;
+            border-top-left-radius: 0;
+        }
+
+        .chat-bubble.sent {
+            background: #dcf8c6;
+            align-self: flex-end;
+            border-top-right-radius: 0;
+        }
+
+        .chat-time {
+            font-size: 0.6rem;
+            color: var(--gray-400);
+            text-align: right;
+            margin-top: 2px;
+        }
+
+        /* Sections shared */
+        .section {
+            padding: 96px 24px;
+        }
+
+        .section-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-label {
+            display: inline-block;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--green);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 12px;
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: var(--gray-900);
+            margin-bottom: 16px;
+        }
+
+        .section-subtitle {
+            font-size: 1.05rem;
+            color: var(--gray-500);
+            max-width: 600px;
+            margin-bottom: 56px;
+        }
+
+        .section-center {
+            text-align: center;
+        }
+
+        .section-center .section-subtitle {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Features */
+        .features {
+            background: var(--white);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .feature-card {
+            background: var(--gray-50);
+            border: 1px solid var(--gray-200);
+            border-radius: 16px;
+            padding: 32px;
+            transition: all 0.2s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.06);
+            border-color: var(--green);
+        }
+
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--green), var(--teal-light));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+        }
+
+        .feature-card h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 8px;
+        }
+
+        .feature-card p {
+            font-size: 0.9rem;
+            color: var(--gray-500);
+            line-height: 1.6;
+        }
+
+        /* How It Works */
+        .how-it-works {
+            background: var(--gray-50);
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+            position: relative;
+        }
+
+        .step {
+            text-align: center;
+            position: relative;
+        }
+
+        .step-number {
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, var(--green), var(--teal));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--white);
+            margin: 0 auto 24px;
+        }
+
+        .step h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 8px;
+        }
+
+        .step p {
+            font-size: 0.9rem;
+            color: var(--gray-500);
+            max-width: 280px;
+            margin: 0 auto;
+        }
+
+        .step-connector {
+            display: none;
+        }
+
+        @media (min-width: 769px) {
+            .step-connector {
+                display: block;
+                position: absolute;
+                top: 32px;
+                left: calc(50% + 48px);
+                width: calc(100% - 96px);
+                height: 2px;
+                background: repeating-linear-gradient(
+                    90deg,
+                    var(--green) 0,
+                    var(--green) 8px,
+                    transparent 8px,
+                    transparent 16px
+                );
+            }
+
+            .step:last-child .step-connector {
+                display: none;
+            }
+        }
+
+        /* Conditions */
+        .conditions {
+            background: var(--white);
+        }
+
+        .conditions-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .condition-card {
+            background: var(--gray-50);
+            border: 1px solid var(--gray-200);
+            border-radius: 16px;
+            padding: 28px;
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            transition: all 0.2s;
+        }
+
+        .condition-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.06);
+            border-color: var(--green);
+        }
+
+        .condition-icon {
+            width: 44px;
+            height: 44px;
+            min-width: 44px;
+            background: linear-gradient(135deg, #ecfdf5, #d1fae5);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+        }
+
+        .condition-card h3 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 4px;
+        }
+
+        .condition-card p {
+            font-size: 0.85rem;
+            color: var(--gray-500);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--teal) 0%, var(--gray-900) 100%);
+            text-align: center;
+        }
+
+        .cta-section .section-title {
+            color: var(--white);
+        }
+
+        .cta-section .section-subtitle {
+            color: rgba(255, 255, 255, 0.7);
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-section .btn-primary {
+            font-size: 1.1rem;
+            padding: 16px 36px;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--gray-900);
+            color: var(--gray-400);
+            padding: 64px 24px 32px;
+        }
+
+        .footer-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 48px;
+            margin-bottom: 48px;
+        }
+
+        .footer-brand p {
+            font-size: 0.9rem;
+            line-height: 1.7;
+            margin-top: 12px;
+        }
+
+        .footer h4 {
+            color: var(--white);
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .footer-links {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .footer-links a {
+            font-size: 0.85rem;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: var(--green);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--gray-700);
+            padding-top: 24px;
+            text-align: center;
+            font-size: 0.8rem;
+        }
+
+        /* Floating WhatsApp Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            z-index: 999;
+            width: 60px;
+            height: 60px;
+            background: var(--green);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 16px rgba(37, 211, 102, 0.4);
+            transition: all 0.3s;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 24px rgba(37, 211, 102, 0.5);
+        }
+
+        .whatsapp-float svg {
+            width: 32px;
+            height: 32px;
+            fill: var(--white);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 1024px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .features-grid,
+            .conditions-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 32px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 64px;
+                left: 0;
+                right: 0;
+                background: var(--white);
+                flex-direction: column;
+                padding: 16px 24px;
+                gap: 16px;
+                border-bottom: 1px solid var(--gray-200);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero-inner {
+                grid-template-columns: 1fr;
+                gap: 48px;
+                text-align: center;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero-subtitle {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .hero-stats {
+                justify-content: center;
+            }
+
+            .phone {
+                width: 260px;
+            }
+
+            .features-grid,
+            .steps,
+            .conditions-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="navbar-inner">
+            <a href="#" class="logo">Ortho<span>Mitra</span></a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#features">Features</a></li>
+                <li><a href="#how-it-works">How It Works</a></li>
+                <li><a href="#conditions">Conditions</a></li>
+                <li><a href="#" class="nav-cta" id="navCtaBtn">Chat on WhatsApp</a></li>
+            </ul>
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero" id="hero">
+        <div class="hero-inner">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <span class="hero-badge-dot"></span>
+                    Available on WhatsApp
+                </div>
+                <h1>Your Personal Orthopedic <span class="highlight">Recovery Companion</span></h1>
+                <p class="hero-subtitle">Get 24/7 AI-powered orthopedic recovery support right on WhatsApp. Personalized exercises, pain management, and progress tracking — all in your language.</p>
+                <div class="hero-buttons">
+                    <a href="#" class="btn btn-primary" id="heroCtaBtn">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.611.611l4.458-1.495A11.96 11.96 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75c-2.35 0-4.527-.7-6.35-1.902l-.45-.29-2.645.887.887-2.645-.29-.45A9.71 9.71 0 012.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75z"/></svg>
+                        Start Free Chat
+                    </a>
+                    <a href="#how-it-works" class="btn btn-secondary">Learn More</a>
+                </div>
+                <div class="hero-stats">
+                    <div class="hero-stat">
+                        <div class="hero-stat-value">10+</div>
+                        <div class="hero-stat-label">Languages</div>
+                    </div>
+                    <div class="hero-stat">
+                        <div class="hero-stat-value">24/7</div>
+                        <div class="hero-stat-label">Available</div>
+                    </div>
+                    <div class="hero-stat">
+                        <div class="hero-stat-value">Free</div>
+                        <div class="hero-stat-label">To Use</div>
+                    </div>
+                </div>
+            </div>
+            <div class="phone-mockup">
+                <div class="phone">
+                    <div class="phone-notch"></div>
+                    <div class="phone-header">
+                        <div class="phone-avatar">OM</div>
+                        <div class="phone-header-text">
+                            <div class="phone-header-name">OrthoMitra</div>
+                            <div class="phone-header-status">online</div>
+                        </div>
+                    </div>
+                    <div class="phone-chat">
+                        <div class="chat-bubble received">
+                            Hello! I'm OrthoMitra, your orthopedic recovery assistant. How can I help you today?
+                            <div class="chat-time">10:30 AM</div>
+                        </div>
+                        <div class="chat-bubble sent">
+                            I had knee surgery 2 weeks ago. Can you help with exercises?
+                            <div class="chat-time">10:31 AM</div>
+                        </div>
+                        <div class="chat-bubble received">
+                            Of course! Based on your 2-week post-op timeline, here are gentle exercises to start with:
+                            <br><br>
+                            1. Ankle pumps (3 sets of 10)<br>
+                            2. Quad sets (3 sets of 10)<br>
+                            3. Heel slides (2 sets of 10)
+                            <br><br>
+                            Shall I explain each exercise in detail?
+                            <div class="chat-time">10:31 AM</div>
+                        </div>
+                        <div class="chat-bubble sent">
+                            Yes please! Also, can you explain in Hindi?
+                            <div class="chat-time">10:32 AM</div>
+                        </div>
+                        <div class="chat-bubble received">
+                            Bilkul! Main aapko Hindi mein samjhata hoon... 🏥
+                            <div class="chat-time">10:32 AM</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="section features" id="features">
+        <div class="section-inner section-center">
+            <span class="section-label">Features</span>
+            <h2 class="section-title">Everything You Need for Recovery</h2>
+            <p class="section-subtitle">OrthoMitra combines AI intelligence with orthopedic expertise to support your recovery journey every step of the way.</p>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🏋️</div>
+                    <h3>Personalized Exercises</h3>
+                    <p>Get exercise routines tailored to your specific condition, surgery type, and recovery stage.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💊</div>
+                    <h3>Pain Management</h3>
+                    <p>Receive guidance on managing pain with proven techniques, medication reminders, and comfort tips.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📈</div>
+                    <h3>Recovery Tracking</h3>
+                    <p>Track your progress over time with regular check-ins and milestone celebrations.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🌍</div>
+                    <h3>Multi-Language Support</h3>
+                    <p>Communicate in 10+ languages including Hindi, Tamil, Telugu, Bengali, and more.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎙️</div>
+                    <h3>Voice Messages</h3>
+                    <p>Send voice messages for a more natural conversation when typing feels difficult.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⏰</div>
+                    <h3>24/7 Availability</h3>
+                    <p>Get answers and support anytime, day or night — no waiting for appointments.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="section how-it-works" id="how-it-works">
+        <div class="section-inner section-center">
+            <span class="section-label">How It Works</span>
+            <h2 class="section-title">Get Started in 3 Simple Steps</h2>
+            <p class="section-subtitle">No downloads, no sign-ups, no hassle. Just open WhatsApp and start chatting.</p>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-connector"></div>
+                    <h3>Click to Chat</h3>
+                    <p>Tap the WhatsApp button to open a conversation with OrthoMitra instantly.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-connector"></div>
+                    <h3>Share Your Condition</h3>
+                    <p>Tell us about your surgery, injury, or orthopedic condition in any language.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-connector"></div>
+                    <h3>Get Personalized Help</h3>
+                    <p>Receive customized exercises, recovery plans, and ongoing support tailored to you.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Conditions -->
+    <section class="section conditions" id="conditions">
+        <div class="section-inner section-center">
+            <span class="section-label">Conditions</span>
+            <h2 class="section-title">Conditions We Support</h2>
+            <p class="section-subtitle">OrthoMitra provides recovery guidance for a wide range of orthopedic conditions.</p>
+            <div class="conditions-grid">
+                <div class="condition-card">
+                    <div class="condition-icon">🦵</div>
+                    <div>
+                        <h3>Knee Surgery</h3>
+                        <p>ACL reconstruction, knee replacement, meniscus repair, and more.</p>
+                    </div>
+                </div>
+                <div class="condition-card">
+                    <div class="condition-icon">🦴</div>
+                    <div>
+                        <h3>Hip Surgery</h3>
+                        <p>Hip replacement, hip resurfacing, and post-operative rehabilitation.</p>
+                    </div>
+                </div>
+                <div class="condition-card">
+                    <div class="condition-icon">🔙</div>
+                    <div>
+                        <h3>Back Pain</h3>
+                        <p>Disc problems, spinal surgery recovery, and chronic back pain management.</p>
+                    </div>
+                </div>
+                <div class="condition-card">
+                    <div class="condition-icon">💪</div>
+                    <div>
+                        <h3>Shoulder Injury</h3>
+                        <p>Rotator cuff repair, shoulder replacement, and frozen shoulder therapy.</p>
+                    </div>
+                </div>
+                <div class="condition-card">
+                    <div class="condition-icon">🩹</div>
+                    <div>
+                        <h3>Fractures</h3>
+                        <p>Post-fracture rehabilitation for arms, legs, wrists, and ankles.</p>
+                    </div>
+                </div>
+                <div class="condition-card">
+                    <div class="condition-icon">🏥</div>
+                    <div>
+                        <h3>General Orthopedic</h3>
+                        <p>Arthritis, sports injuries, joint pain, and general musculoskeletal care.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section cta-section">
+        <div class="section-inner section-center">
+            <span class="section-label" style="color: var(--green);">Start Today</span>
+            <h2 class="section-title">Begin Your Recovery Journey Now</h2>
+            <p class="section-subtitle">Join thousands of patients who are recovering smarter with OrthoMitra. Free, instant, and available in your language.</p>
+            <a href="#" class="btn btn-primary" id="ctaBtn">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.611.611l4.458-1.495A11.96 11.96 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75c-2.35 0-4.527-.7-6.35-1.902l-.45-.29-2.645.887.887-2.645-.29-.45A9.71 9.71 0 012.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75z"/></svg>
+                Chat with OrthoMitra on WhatsApp
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="logo">Ortho<span>Mitra</span></div>
+                    <p>Your AI-powered orthopedic recovery companion on WhatsApp. Get personalized support for your recovery journey, available 24/7 in multiple languages.</p>
+                </div>
+                <div>
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#how-it-works">How It Works</a></li>
+                        <li><a href="#conditions">Conditions</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Support</h4>
+                    <ul class="footer-links">
+                        <li><a href="#" id="footerWhatsappLink">WhatsApp Chat</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Contact</h4>
+                    <ul class="footer-links">
+                        <li><a href="#" id="footerPhoneLink">WhatsApp Support</a></li>
+                        <li><a href="mailto:support@orthomitra.com">support@orthomitra.com</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2026 OrthoMitra. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="#" class="whatsapp-float" id="whatsappFloat" aria-label="Chat on WhatsApp">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.611.611l4.458-1.495A11.96 11.96 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75c-2.35 0-4.527-.7-6.35-1.902l-.45-.29-2.645.887.887-2.645-.29-.45A9.71 9.71 0 012.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75z"/></svg>
+    </a>
+
+    <script>
+        // =============================================
+        // CONFIGURATION - Update phone number here
+        // =============================================
+        const CONFIG = {
+            whatsappNumber: '919999999999', // Replace with actual WhatsApp number (country code + number, no + or spaces)
+            whatsappMessage: 'Hi! I need help with my orthopedic recovery.',
+        };
+
+        // Build WhatsApp URL
+        function getWhatsAppURL() {
+            const message = encodeURIComponent(CONFIG.whatsappMessage);
+            return `https://wa.me/${CONFIG.whatsappNumber}?text=${message}`;
+        }
+
+        // Set all WhatsApp links
+        function initWhatsAppLinks() {
+            const url = getWhatsAppURL();
+            const linkIds = ['navCtaBtn', 'heroCtaBtn', 'ctaBtn', 'whatsappFloat', 'footerWhatsappLink', 'footerPhoneLink'];
+            linkIds.forEach(function(id) {
+                const el = document.getElementById(id);
+                if (el) {
+                    el.href = url;
+                    el.target = '_blank';
+                    el.rel = 'noopener noreferrer';
+                }
+            });
+        }
+
+        // Mobile menu toggle
+        document.getElementById('mobileMenuBtn').addEventListener('click', function() {
+            document.getElementById('navLinks').classList.toggle('active');
+        });
+
+        // Close mobile menu on link click
+        document.querySelectorAll('.nav-links a').forEach(function(link) {
+            link.addEventListener('click', function() {
+                document.getElementById('navLinks').classList.remove('active');
+            });
+        });
+
+        // Initialize
+        initWhatsAppLinks();
+    </script>
+
+</body>
+</html>
