@@ -642,7 +642,6 @@ img {
         radial-gradient(circle at 20% 50%, rgba(37, 211, 102, 0.03) 0%, transparent 50%),
         radial-gradient(circle at 80% 20%, rgba(7, 94, 84, 0.03) 0%, transparent 50%);
     padding: 12px 8px;
-    min-height: 340px;
     display: flex;
     flex-direction: column;
     gap: 5px;
