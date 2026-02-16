@@ -7,7 +7,7 @@
 // =============================================
 const CONFIG = {
     whatsappNumber: '919999999999',   // Country code + number, no + or spaces
-    whatsappMessage: 'Hi! I need help with my orthopedic recovery.',
+    whatsappMessage: 'Hi! I have an orthopedic issue and need some guidance.',
 };
 
 // =============================================

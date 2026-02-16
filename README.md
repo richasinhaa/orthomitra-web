@@ -1,6 +1,6 @@
-# OrthoMitra — AI-Powered Orthopedic Recovery on WhatsApp
+# OrthoMitra — Your Orthopedic Guide on WhatsApp
 
-Landing page for OrthoMitra, an AI-powered orthopedic recovery assistant available 24/7 on WhatsApp.
+Landing page for OrthoMitra — an AI-powered orthopedic guide for anyone dealing with bone, joint, or muscle problems who doesn't know where to start. Available 24/7 on WhatsApp, in 10+ languages, completely free.
 
 ## Project Structure
 
@@ -21,7 +21,7 @@ Landing page for OrthoMitra, an AI-powered orthopedic recovery assistant availab
    ```js
    const CONFIG = {
        whatsappNumber: '919999999999',  // Your number: country code + number
-       whatsappMessage: 'Hi! I need help with my orthopedic recovery.',
+       whatsappMessage: 'Hi! I have an orthopedic issue and need some guidance.',
    };
    ```
 3. Open `index.html` in a browser — no build step required.
