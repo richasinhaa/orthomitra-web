@@ -6,7 +6,7 @@
 // CONFIGURATION - Update phone number here
 // =============================================
 const CONFIG = {
-    whatsappNumber: '919999999999',   // Country code + number, no + or spaces
+    whatsappNumber: '+15551463301',   // Country code + number, no + or spaces
     whatsappMessage: 'Hi! I have an orthopedic issue and need some guidance.',
 };
 
