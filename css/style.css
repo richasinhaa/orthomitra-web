@@ -1485,6 +1485,97 @@ img {
 }
 
 /* ============================================
+   Legal / Info Pages (FAQ, Privacy, Terms)
+   ============================================ */
+.legal-page {
+    padding-top: 140px;
+    padding-bottom: 80px;
+}
+
+.legal-page h1 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--gray-900);
+    margin-bottom: 12px;
+    letter-spacing: -0.03em;
+    line-height: 1.2;
+}
+
+.legal-updated {
+    font-size: 0.9rem;
+    color: var(--gray-400);
+    margin-bottom: 48px;
+}
+
+.legal-page h2 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--gray-900);
+    margin-top: 40px;
+    margin-bottom: 12px;
+    letter-spacing: -0.01em;
+}
+
+.legal-page p {
+    font-size: 0.95rem;
+    color: var(--gray-600);
+    line-height: 1.75;
+    margin-bottom: 16px;
+}
+
+.legal-page ul {
+    margin: 8px 0 20px 24px;
+    color: var(--gray-600);
+    font-size: 0.95rem;
+    line-height: 1.75;
+}
+
+.legal-page ul li {
+    margin-bottom: 6px;
+}
+
+.legal-page a {
+    color: var(--teal);
+    text-decoration: underline;
+    text-decoration-color: var(--green-light);
+    text-underline-offset: 3px;
+    transition: color var(--transition);
+}
+
+.legal-page a:hover {
+    color: var(--green-dark);
+}
+
+/* FAQ items */
+.faq-item {
+    padding: 28px 0;
+    border-bottom: 1px solid var(--gray-200);
+}
+
+.faq-item:first-of-type {
+    padding-top: 0;
+}
+
+.faq-item:last-of-type {
+    border-bottom: none;
+}
+
+.faq-item h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--gray-900);
+    margin-bottom: 10px;
+    letter-spacing: -0.01em;
+}
+
+.faq-item p {
+    font-size: 0.95rem;
+    color: var(--gray-500);
+    line-height: 1.7;
+    margin-bottom: 0;
+}
+
+/* ============================================
    Mobile Responsive
    ============================================ */
 @media (max-width: 1024px) {
@@ -1661,6 +1752,20 @@ img {
     .whatsapp-float-tooltip {
         display: none;
     }
+
+    .legal-page {
+        padding-top: 110px;
+        padding-bottom: 60px;
+    }
+
+    .legal-page h1 {
+        font-size: 1.9rem;
+    }
+
+    .legal-page h2 {
+        font-size: 1.15rem;
+        margin-top: 32px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -1691,6 +1796,23 @@ img {
 
     .btn-lg {
         padding: 16px 32px;
+        font-size: 1rem;
+    }
+
+    .legal-page h1 {
+        font-size: 1.6rem;
+    }
+
+    .legal-page p,
+    .legal-page ul {
+        font-size: 0.9rem;
+    }
+
+    .faq-item {
+        padding: 22px 0;
+    }
+
+    .faq-item h3 {
         font-size: 1rem;
     }
 }
